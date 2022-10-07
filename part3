@@ -1,0 +1,21 @@
+import string
+inFile=input("Enter the input file name: ")
+openInFile=open(inFile,'r')
+words=[]
+for line in openInFile:
+    for word in line.split():
+        words.append(word.lower())
+words.sort()        
+dictionary={}
+for word in words:
+    number=dictionary.get(word, None)
+    if number== None:
+        dictionary[word]=1
+    else:dictionary[word]=number+1
+        
+
+maximum=max(dictionary.values())
+for key in dictionary:
+    if dictionary[key]==maximum:
+        print(dictionary,key)
+        break
